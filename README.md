@@ -16,6 +16,12 @@ DB_USERNAME=root
 DB_PASSWORD=challenge-root (password criado através do docker-compose.yml)
 ```
 
+Depois de configurar o docker-compose.yml - caso necessário - hora de buildar a aplicação:
+```
+docker-compose up --build -d
+```
+Este comando irá subir a aplicação sem precisar deixar o terminal aberto.
+
 # Swagger
 Esse projeto possui uma documentação básica de swagger. Caso você queira criar mais anotações de documentação do projeto, importante utilizar o comando do artisan na pasta /var/www/html/:
 ```

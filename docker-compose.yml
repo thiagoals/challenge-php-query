@@ -1,0 +1,22 @@
+version: "3.3"
+
+services:
+
+  nginx:
+    container_name: nginx-query
+    build: images/nginx
+    command: nginx -g "daemon off;"
+    links:
+      - php
+    ports:
+      - "8080:80"
+  
+  php:
+    container_name: php-query
+    build: images/php
+    volumes:
+      - ./lumen:/var/www/html
+    working_dir: /var/www/html/app/public
+    command: php-fpm
+    ports:
+      - "9002:9000"

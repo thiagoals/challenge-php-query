@@ -1,0 +1,55 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Example API",
+        "contact": {
+            "name": "Challenge-PHP",
+            "email": "thiagoaaugustols@gmail.com"
+        },
+        "version": "1.0"
+    },
+    "paths": {
+        "/ordens/get": {
+            "get": {
+                "tags": [
+                    "Ordens"
+                ],
+                "operationId": "App\\Http\\Controllers\\OrdensController::get",
+                "responses": {
+                    "200": {
+                        "description": "Busca as ordens do usuário.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erro: Problema ao buscar as ordens."
+                    }
+                }
+            }
+        },
+        "/pessoas/get": {
+            "get": {
+                "tags": [
+                    "Pessoas"
+                ],
+                "operationId": "App\\Http\\Controllers\\PessoasController::get",
+                "responses": {
+                    "200": {
+                        "description": "Busca as pessoas cadastradas pelo xml.",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erro: Problema ao buscar as pessoas."
+                    }
+                }
+            }
+        }
+    }
+}

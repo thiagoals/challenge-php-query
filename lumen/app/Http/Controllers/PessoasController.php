@@ -15,7 +15,22 @@ class PessoasController extends Controller
         //
     }
 
-    //
+    
+    /**
+     * @OA\Get(
+     *     path="/pessoas/get",
+     *     tags={"Pessoas"},
+     *     @OA\Response(
+     *         response="200",
+     *         description="Busca as pessoas cadastradas pelo xml.",
+     *         @OA\JsonContent()
+     *     ),
+     *     @OA\Response(
+     *         response="400",
+     *         description="Erro: Problema ao buscar as pessoas.",
+     *     ),
+     * )
+     */
     public function get(){
         try{
             $pessoas = DB::table('pessoas')->get();

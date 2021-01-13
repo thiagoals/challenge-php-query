@@ -15,7 +15,21 @@ class OrdensController extends Controller
         //
     }
 
-    //
+    /**
+     * @OA\Get(
+     *     path="/ordens/get",
+     *     tags={"Ordens"},
+     *     @OA\Response(
+     *         response="200",
+     *         description="Busca as ordens do usuário.",
+     *         @OA\JsonContent()
+     *     ),
+     *     @OA\Response(
+     *         response="400",
+     *         description="Erro: Problema ao buscar as ordens.",
+     *     ),
+     * )
+     */
     public function get($id_pessoa){
         try{
             $ordens = DB::table('ordens')

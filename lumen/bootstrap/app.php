@@ -118,6 +118,9 @@ $app->middleware([
     App\Http\Middleware\CorsMiddleware::class
  ]);
 
+$app->configure('swagger-lume');
+$app->register(\SwaggerLume\ServiceProvider::class);
+
 $app->router->group([
     'namespace' => 'App\Http\Controllers',
 ], function ($router) {

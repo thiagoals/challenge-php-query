@@ -16,3 +16,12 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+// Conjunto de métodos que somente usuários autenticados conseguem fazer
+$router->group(
+    ['prefix'=>'pessoas','middleware'=>'jwt.auth']
+    , function() use ($router){
+    $router->get('get',[
+        'uses'=>'PessoasController@get'
+    ]);
+});

@@ -23,9 +23,9 @@ $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
 
-// $app->withFacades();
+$app->withFacades();
 
-// $app->withEloquent();
+$app->withEloquent();
 
 /*
 |--------------------------------------------------------------------------
@@ -105,6 +105,18 @@ $app->configure('app');
 | can respond to, as well as the controllers that may handle them.
 |
 */
+
+// Adicionando o JWTMiddleWare para proteger nossos métodos
+$app->routeMiddleware([
+    'jwt.auth' => App\Http\Middleware\JwtMiddleware::class,
+]);
+// Adicionando CorsMiddleware para conseguirmos requisitar o nosso serviço através do localhost
+/**
+ * TODO - Verificar se essas configurações irão para produção ou não
+ */
+$app->middleware([
+    App\Http\Middleware\CorsMiddleware::class
+ ]);
 
 $app->router->group([
     'namespace' => 'App\Http\Controllers',

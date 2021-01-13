@@ -25,3 +25,11 @@ $router->group(
         'uses'=>'PessoasController@get'
     ]);
 });
+
+$router->group(
+    ['prefix'=>'ordens','middleware'=>'jwt.auth']
+    , function() use ($router){
+    $router->get('get/{id_pessoa}',[
+        'uses'=>'OrdensController@get'
+    ]);
+});
